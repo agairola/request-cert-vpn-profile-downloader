@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Request VPN Client Certificate</title>
+    <!-- Styles -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/main.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mt-5">Request A Certificate </h1>
+          <p class="lead">This function request a VPN Client certificate for a given username.</p>
+          <hr><br>
+          <h4>Information Required</h4>
+          <ul style="list-style-type:circle;">
+                <li>Certificate authority (PCA) ARN</li>
+                <li>Username</li>
+                <li>Common name in the certificate, it can be same as username </li>
+          </ul> 
+        <hr><br>
+        <p>>>>>>>> Add an option here to list certificate authority with CN -- to be completed</p>
+        <hr><br>
+          <form>
+            <div class="emailBox">
+              <label for="PCA_ARN">Please provide valid Subordinate CA ARN</label><br>
+              <input id="PCA_ARN" type="text" size="64" maxLength="120" required
+                     placeholder="arn:aws:acm-pca:REGION:ACCOUNTID:certificate-authority/d6d7d456-exam-ple6-a4ae-566xxxxc6e8a"
+                     title="Please provide valid Subordinate CA ARN">
+            </div>
+            <div class="Username">
+              <label for="Username">Enter username</label><br>
+              <input id="Username" type="name" size="64" maxLength="64" required
+                     placeholder="testuser" 
+                     title="Please provide a VPN client username">
+            </div>
+            <div class="CommonName">
+                <label for="CommonName">Enter common name in the certificate </label><br>
+                <input id="CommonName" type="name" size="64" maxLength="64" required
+                       placeholder="testuser.internal.subca" 
+                       pattern="^([a-zA-Z0-9][-a-zA-Z0-9]*[a-zA-Z0-9]\.)+([a-zA-Z0-9]{3,5})$"
+                       title="Please provide common name in the certificate">
+            </div>
+            <button type="submit" class="btn btn-primary">Request Certificate (wait for 10 secs)</button>
+
+          </form>
+          <br>
+          <h5 class="answer text-danger"></h5>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/popper/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="assets/RequestCert.js"></script>
+  </body>
+</html>

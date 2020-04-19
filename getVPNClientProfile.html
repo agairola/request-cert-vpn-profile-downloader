@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>VPN Client Profile</title>
+    <!-- Styles -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/main.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mt-5">VPN Client Profile Downloaded</h1>
+          <p class="lead">This function request a VPN Client for a given username.</p>
+          <hr><br>
+          <h4>Information Required</h4>
+          <ul style="list-style-type:circle;">  
+                <li>VPN Client Username you used to request certificate</li>
+                <li>Passphrase to be used while exporting the Client certificate from PCA</li>
+                <li>Amazon VPN Client Tag </li>
+                <li>S3 Bucket to save VPN Client profile</li>
+          </ul> 
+        <hr><br>
+          <form>
+            <div class="Username">
+                <label for="Username">Enter VPN Client Username you used to request certificate</label><br>
+                <input id="Username" type="name" size="64" maxLength="64" required
+                       placeholder="testuser" 
+                       title="Please provide a VPN client username">
+              </div>
+            <div class="Passphrase">
+              <label for="Passphrase">Enter Passphrase that would be used to export PCA certificate</label><br>
+              <input id="Passphrase" type="password" size="64" maxLength="64" required
+                     placeholder="securepassword" 
+                     title="Please provide a passphrase for certificate export">
+            </div>
+            <div class="ClientVPNTag">
+                <label for="ClientVPNTag">Enter Amazon Client VPN Tag </label><br>
+                <input id="ClientVPNTag" type="name" size="64" maxLength="64" required
+                       placeholder="ClientVPNTest" 
+                       title="Please provide Amazon Client VPN Tag">
+            </div>
+            <div class="S3Bucket">
+                <label for="S3Bucket">Enter S3 Bucket name for VPN Client profile</label><br>
+                <input id="S3Bucket" type="name" size="64" maxLength="64" required
+                       placeholder="temp-bucket" 
+                       title="Please provide S3 Bucket name for VPN Client profile">
+            </div>
+            <button type="submit" class="btn btn-primary">Get VPN Client Profile (wait for 10 secs)</button>
+
+          </form>
+          <br>
+          <h5 class="answer text-danger">
+            <a href="" id="s3url"></a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/popper/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/getVPNClientProfile.js"></script>
+  </body>
+</html>
