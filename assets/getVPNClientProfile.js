@@ -14,13 +14,14 @@ $('form').on('submit', (event) => {
       // url: 'https://mvwrtxyuph.execute-api.ap-southeast-2.amazonaws.com',
       url: 'https://tq4vw5c0tc.execute-api.ap-southeast-2.amazonaws.com/v1/cvpn/getclientprofile',
       dataType: 'json',
-      contentType: 'application/json',
+      contentType: 'application/x-www-form-urlencoded',
       data: JSON.stringify(payload)
     })
     .done((res) => {
   
         let message = 'Incorrect. Please try again.';
-        if (res) {
+        json = JSON.parse(JSON.stringify(res));
+        if (json) {
             
             message = 'Success!';
          
@@ -30,7 +31,7 @@ $('form').on('submit', (event) => {
           $(this).append('&nbsp;<a href="foo.html" id="s3link">S3 Download Link</a>')
           }
         );
-        $("#s3link").attr("href", res.s3link);
+        $("#s3link").attr("href", json.s3link);
         console.log(res);
         console.log(message);
     })

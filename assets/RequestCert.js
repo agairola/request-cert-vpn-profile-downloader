@@ -13,15 +13,16 @@ $('form').on('submit', (event) => {
       // url: 'https://68p50vw2v9.execute-api.ap-southeast-2.amazonaws.com/v1',
       // url: 'https://mvwrtxyuph.execute-api.ap-southeast-2.amazonaws.com',
       url: 'https://tq4vw5c0tc.execute-api.ap-southeast-2.amazonaws.com/v1/pca/requestcert',
-      dataType: 'json',
-      contentType: 'application/json',
+      dataType: 'text',
+      contentType: 'application/x-www-form-urlencoded',
       data: JSON.stringify(payload)
     })
     .done((res) => {
   
         let message = 'Incorrect. Please try again.';
-        if (res) {
-            message = 'Success!' + ' Certificate ARN is: ' + res.certarn;
+        json = JSON.parse(res);
+        if (json) {
+            message = 'Success!' + ' Certificate ARN is: ' + json.certarn;
         }
         $('.answer').html(message);
         console.log(res);
